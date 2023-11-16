@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista rate</title>
+</head>
+<body>
+{%block contenido%}
+<section>
+ <div>
+   <h1>Lista de act</h1>
+   <a href="{% url 'lista_act' %}">Ver todos</a>
+   <a href="{% url 'crear_act' %}">Crear nuevo</a>
+   <br><br>
+   <form action="{% url 'buscar_act' %}" method="post">
+     {% csrf_token %}
+     <input type="text" name="busqueda">
+     <input type="submit" value="Buscar">
+   </form>
+   <br>
+   <ul>
+   {% for actor in rev_peliculas %}
+     <li>{{ actor.nombre }}, {{ actor.puntaje }}</li>
+   {% endfor %}
+   </ul>
+ </div>
+</section>
+{% endblock contenido %}
+
+</body>
+</html>
+ 

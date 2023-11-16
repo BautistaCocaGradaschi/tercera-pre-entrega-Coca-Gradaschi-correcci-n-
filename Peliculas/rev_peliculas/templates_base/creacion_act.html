@@ -1,0 +1,11 @@
+
+{% block contenido %}
+<form method="post">
+    {% csrf_token %}
+    <p>Nombre actor</p>
+    <input type="text" name="nombre">
+    <p>Puntaje</p>
+    <input type="number" name="puntaje" step="1">
+    <input type="submit" value="Enviar">
+</form>
+{% endblock contenido %}
